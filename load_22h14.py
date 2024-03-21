@@ -1,13 +1,15 @@
 from src.models.vision_transformer import vit_huge
 
 # Initialize the ViT-H model with the specified patch size and resolution
-model = vit_huge(patch_size=14, num_classes=1000)  # Adjust num_classes if needed
+model = vit_huge(patch_size=14, num_classes=22000)  # Adjust num_classes if needed
 
 import torch
 
 # Load the state dictionary from the file
 # state_dict = torch.load('/content/drive/MyDrive/IN1K-vit.h.14-300e.pth.tar')
-load_path = '/home/simone/Downloads/ijepa/IN1K-vit.h.14-300e.pth.tar'
+# load_path = '/home/simone/Downloads/ijepa/IN22K-vit.g.16-600e.pth.tar'
+# load_path = '/home/simone/Downloads/ijepa/IN1K-vit.h.14-300e.pth.tar'
+load_path = '/home/simone/Downloads/ijepa/IN22K-vit.h.14-900e.pth.tar'
 ckpt = torch.load(load_path, map_location=torch.device('cpu'))
 pretrained_dict = ckpt['encoder']
 #
@@ -37,4 +39,5 @@ def print_model_layers(model, prefix=""):
 print_model_layers(model)
 
 print('='*20)
-model.print_layers()
+# model.print_layers()
+print(model)
