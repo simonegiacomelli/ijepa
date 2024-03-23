@@ -1,3 +1,3 @@
-from load_encoder import load_cpu_IN1k_vit_h_14_300e
+from load_encoder import load_IN1k_vit_h_14_300e
 
-print(load_cpu_IN1k_vit_h_14_300e())
+print(load_IN1k_vit_h_14_300e())
