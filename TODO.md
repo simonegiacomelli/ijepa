@@ -1,2 +1,3 @@
 - script to download checkpoints
+- fix tensorboard pipeline (now the paths do not match)
 - clean repo
