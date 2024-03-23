@@ -2,10 +2,17 @@ import torch
 
 
 def _load_cpu_vit_huge(patch_size, num_classes, checkpoint):
+    if torch.cuda.is_available():
+        print("Using GPU")
+        map_location = None
+    else:
+        print("Using CPU")
+        map_location = torch.device('cpu')
+
     from src.models.vision_transformer import vit_huge
     load_path = './checkpoint/' + checkpoint
     model = vit_huge(patch_size=patch_size, num_classes=num_classes)
-    ckpt = torch.load(load_path, map_location=torch.device('cpu'))
+    ckpt = torch.load(load_path, map_location=map_location)
     pretrained_dict = ckpt['encoder']
 
     encoder_mod = {}
