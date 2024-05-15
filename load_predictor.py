@@ -17,5 +17,5 @@ encoder, predictor = init_model(map_location)
 print(predictor)
 
 writer = SummaryWriter()
-writer.add_graph(predictor, torch.rand(1, 3, 224, 224))  # FIXME
+writer.add_graph(predictor, [], [], torch.rand(1, 3, 224, 224))  # FIXME
 writer.close()
